@@ -24,15 +24,15 @@
         </header>
         <div class="form">
             <div class="login">
-            <div class="left" id="login">
+            <div class="left" id="login" method ="POST">
                 <form>
                     <h2>Đăng Nhập</h2>
-                    <div class="input">
-                        <input type="text" name="text" placeholder="Tên tài khoản hoặc email" required>
+                    <div class="input" >
+                        <input id="username" type="text" name="text" placeholder="Tên tài khoản" required>
                         <span> <i class="fa-solid fa-user"></i></span>
                     </div>
-                    <div class="input">
-                        <input type="password" name="password" id="password" placeholder="Mật Khẩu" required>
+                    <div class="input" >
+                        <input id ="password" type="password" name="password" placeholder="Mật Khẩu" required>
                         <span><i class="fa-solid fa-eye" id="bg" onclick="showHint()" aria-hidden="true"  ></i></span>
                     </div>
                     <div class="forget">
@@ -41,7 +41,7 @@
                     </div>
                     
                     <div class="button">
-                        <button>Đăng Nhập</button>
+                        <button type ="submit">Đăng Nhập</button>
                     </div>
                     <div class="top">
                         <p>Bạn chưa có tài khoản đăng nhập? <a href="#" onclick="register()">Đăng Ký</a></p>
@@ -57,6 +57,8 @@
                     </div>
                 </form>
             </div>
+
+     
             <div class="right" id="register">
                 <form>
                     <h2>Đăng Ký</h2>
@@ -135,5 +137,38 @@
             }
         }
     </script>
+    <script>
+
+        // Xử lý Đăng nhập   
+       document.getElementById('login').addEventListener('submit', function(event) {
+
+       event.preventDefault(); // Ngăn chặn gửi form đi
+       
+       // Lấy giá trị từ các input
+       var username = document.getElementById('username').value;
+       var password = document.getElementById('password').value;
+               
+               
+       // Xử lý dữ liệu đăng nhập theo ý muốn
+               
+       // Ví dụ: Kiểm tra thông tin đăng nhập hợp lệ
+               
+       if (username === 'khanh' && password === '123456') {
+               
+       // Nếu thông tin hợp lệ, chuyển đến trang thành công
+               
+           window.location="CV.html"
+               
+       } else {
+               
+       // Nếu thông tin không hợp lệ, hiển thị thông báo lỗi
+               
+       alert("Tên đăng nhập hoặc mật khẩu không chính xác!");      
+       }
+       
+       });
+   
+
+       </script>
 </body>
 </html>
